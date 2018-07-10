@@ -1,0 +1,153 @@
+{
+  "index.html": {
+    "resources": [
+      "pullrefresh_sub.html",
+      "html/pullrefresh_sub.html",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/left.menu.js"
+    ],
+    "refer": [
+      "pullrefresh_sub.html",
+      "sidemenu.html",
+      "html/sidemenu.html",
+      "html/pullrefresh_sub.html",
+      "html/load.html"
+    ]
+  },
+  "html/pullrefresh_sub.html": {
+    "refer": [
+      "html/teamdetail.html"
+    ],
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "images/img_27.png",
+      "images/img_29.png",
+      "images/img_16.png",
+      "images/img_21.png",
+      "images/img_1.png",
+      "images/img_19.png",
+      "images/img_18.png",
+      "images/img_22.png",
+      "images/img_31.png",
+      "images/img_30.png",
+      "images/img_15.png",
+      "images/img_14.png",
+      "images/img_2.png",
+      "images/img_17.png",
+      "images/img_4.png",
+      "images/img_6.png",
+      "images/img_7.png",
+      "images/img_10.png",
+      "images/img_11.png",
+      "images/img_12.png",
+      "images/img_28.png",
+      "images/img_25.png",
+      "images/img_23.png",
+      "images/img_8.png",
+      "images/img_32.png",
+      "images/img_20.png",
+      "images/img_3.png",
+      "images/img_5.png",
+      "images/img_9.png",
+      "images/img_13.png",
+      "images/img_26.png",
+      "images/img_24.png"
+    ]
+  },
+  "html/teamdetail.html": {
+    "href": "html/teamdetail.html",
+    "resources": [
+      "css/mui.min.css",
+      "images/bg_detail.jpg",
+      "js/mui.js",
+      "js/mui.min.js",
+      "js/teamdetail.js",
+      "images/img_27.png",
+      "images/img_29.png",
+      "images/img_16.png",
+      "images/img_21.png",
+      "images/img_1.png",
+      "images/img_19.png",
+      "images/img_18.png",
+      "images/img_22.png",
+      "images/img_31.png",
+      "images/img_30.png",
+      "images/img_15.png",
+      "images/img_14.png",
+      "images/img_2.png",
+      "images/img_17.png",
+      "images/img_4.png",
+      "images/img_6.png",
+      "images/img_7.png",
+      "images/img_10.png",
+      "images/img_11.png",
+      "images/img_12.png",
+      "images/img_28.png",
+      "images/img_25.png",
+      "images/img_23.png",
+      "images/img_8.png",
+      "images/img_32.png",
+      "images/img_20.png",
+      "images/img_3.png",
+      "images/img_5.png",
+      "images/img_9.png",
+      "images/icon_default.png",
+      "images/img_13.png",
+      "images/img_26.png",
+      "images/img_24.png",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "html/register.html": {
+    "href": "html/register.html",
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "images/icon_default.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "html/login.html": {
+    "href": "html/login.html",
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "images/icon_default.png"
+    ],
+    "refer": [
+      "html/register.html"
+    ],
+    "priority": 0
+  },
+  "html/revise.html": {
+    "href": "html/revise.html",
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "images/icon_default.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "html/sidemenu.html": {
+    "href": "html/sidemenu.html",
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "images/icon_default.png"
+    ],
+    "refer": [
+      "html/login.html",
+      "html/revise.html",
+      "html/load.html",
+      "html/myhome.html"
+    ],
+    "priority": 0
+  }
+}

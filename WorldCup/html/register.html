@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #000000;"></a>
+			<h1 id="title" class="mui-title" style="color: #000000;">注册</h1>
+		</header>
+		<div style="text-align: center;">
+			<img src="../images/icon_default.png" style="display: inline-block;margin-top: 20%;  " />
+			<form class="mui-input-group" style="position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 180px;
+    width: 100%;">
+				<div class="mui-input-row">
+					<label style="text-align: left;">用户名</label>
+					<input id="username" type="text" class="mui-input-clear" placeholder="请输入用户名">
+				</div>
+				<div class="mui-input-row">
+					<label style="text-align: left;">手机号</label>
+					<input id="phone" type="text" class="mui-input-clear" placeholder="请输入11位手机号">
+				</div>
+				<div class="mui-input-row">
+					<label style="text-align: left;">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+					<input id="pwd" type="password" class="mui-input-password" placeholder="请输入6~12位密码">
+				</div>
+				<div class="mui-button-row" style="padding-top: 10px">
+					<button id="register" type="button" style="width: 180px;" class="mui-btn mui-btn-primary">注册</button>
+
+				</div>
+
+			</form>
+
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/config.js" ></script>
+		<script type="text/javascript" src="../js/httpload.js" ></script>
+		<script type="text/javascript">
+			mui.init()
+
+			document.getElementById('register').addEventListener("tap", function(e) {
+				register(getPort());
+			});
+		</script>
+	</body>
+
+</html>

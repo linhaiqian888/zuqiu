@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+
+		<style>
+			.mui-control-content {
+				background-color: white;
+				min-height: calc(100vh - 225px);
+			}
+			
+			#sliderSegmentedControl {
+				height: 40px;
+			}
+			
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}
+			
+			#img1 {
+				height: 180px;
+				width: 100%;
+			}
+			
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			
+			.mui-bar~.mui-content .mui-fullscreen {
+				top: 44px;
+				height: auto;
+			}
+			
+			.mui-pull-top-tips {
+				position: absolute;
+				top: -20px;
+				left: 50%;
+				margin-left: -25px;
+				width: 40px;
+				height: 40px;
+				border-radius: 100%;
+			}
+			
+			.mui-bar~.mui-pull-top-tips {
+				top: 24px;
+			}
+			
+			.mui-pull-top-wrapper {
+				width: 42px;
+				height: 42px;
+				display: block;
+				text-align: center;
+				background-color: #efeff4;
+				border: 1px solid #ddd;
+				border-radius: 25px;
+				background-clip: padding-box;
+				box-shadow: 0 4px 10px #bbb;
+				overflow: hidden;
+			}
+			
+			.mui-pull-top-tips.mui-transitioning {
+				-webkit-transition-duration: 200ms;
+				transition-duration: 200ms;
+			}
+			
+			.mui-pull-top-tips .mui-pull-loading {
+				margin: 0;
+			}
+			
+			.mui-scroll {
+				min-height: 200px;
+			}
+			
+			.mui-pull-top-wrapper .mui-icon,
+			.mui-pull-top-wrapper .mui-spinner {
+				margin-top: 7px;
+			}
+			
+			.mui-pull-top-wrapper .mui-icon.mui-reverse {
+				/*-webkit-transform: rotate(180deg) translateZ(0);*/
+			}
+			
+			.mui-pull-bottom-tips {
+				text-align: center;
+				background-color: #efeff4;
+				font-size: 15px;
+				line-height: 40px;
+				color: #777;
+			}
+			
+			.mui-pull-top-canvas {
+				overflow: hidden;
+				background-color: #fafafa;
+				border-radius: 40px;
+				box-shadow: 0 4px 10px #bbb;
+				width: 40px;
+				height: 40px;
+				margin: 0 auto;
+			}
+			
+			.mui-pull-top-canvas canvas {
+				width: 40px;
+			}
+			
+			.mui-slider-indicator.mui-segmented-control {
+				background-color: #efeff4;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-transparent">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #FFFFFF;"></a>
+			<h1 id="title" class="mui-title" style="color: #FFFFFF;"></h1>
+		</header>
+		<img id="img1" src="../images/bg_detail.jpg" />
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll">
+						<a class="mui-control-item" href="#item1mobile">
+							简介
+						</a>
+						<a class="mui-control-item" href="#item2mobile">
+							赛果
+						</a>
+						<a class="mui-control-item" href="#item3mobile">
+							赛程
+						</a>
+						<a class="mui-control-item" href="#item4mobile">
+							阵容
+						</a>
+					</div>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<p id="details" style="margin-left: 10px;margin-right: 10px; font-size: 13;color: #000000;"></p>
+							</div>
+
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="item4mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		<script src="../js/mui.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/httpload.js"></script>
+		<script type="text/javascript" src="../js/config.js" ></script>
+		<script src="../js/mui.pullToRefresh.js"></script>
+		<script src="../js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			mui.init();
+
+			mui.plusReady(function() {
+					
+					var self = plus.webview.currentWebview();
+					isResultLoad = false;
+					document.getElementById("title").innerHTML = self.data.teamname;
+					document.getElementById("details").innerHTML = self.data.introduce;
+				}
+
+			);
+
+			var index = 0;
+			var pageResult = 1;
+			var pageMatch = 1;
+
+			(function($) {
+				var html2 = '<ul class="mui-table-view mui-table-view-chevron" id="list"></ul>';
+				var item2 = document.getElementById('item2mobile');
+				var html3 = '<ul class="mui-table-view mui-table-view-chevron" id="matchlist"></ul>';
+				var item3 = document.getElementById('item3mobile');
+				var html4 = '<ul class="mui-table-view mui-table-view-chevron" id="playerlist"></ul>';
+				var item4 = document.getElementById('item4mobile');
+				document.getElementById('slider').addEventListener('slide', function(e) {
+					index = e.detail.slideNumber;
+
+					if(index == 1) {
+						if(item2.querySelector('.mui-loading')) {
+							setTimeout(function() {
+								item2.querySelector('.mui-scroll').innerHTML = html2;
+								teamResultLoad(getPort(),pageResult, 10, plus.webview.currentWebview().data.teamname);
+							}, 500);
+						}
+
+					} else if(index == 2) {
+						if(item3.querySelector('.mui-loading')) {
+							setTimeout(function() {
+								item3.querySelector('.mui-scroll').innerHTML = html3;
+								teamMatchLoad(getPort(),pageMatch, 10, plus.webview.currentWebview().data.teamname);
+							}, 500);
+						}
+
+					} else if(index == 3) {
+
+						if(item4.querySelector('.mui-loading')) {
+
+							setTimeout(function() {
+								item4.querySelector('.mui-scroll').innerHTML = html4;
+								playerController(getPort(),plus.webview.currentWebview().data.teamname);
+							}, 500);
+						}
+					}
+				});
+
+				$('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: true //是否显示滚动条
+				});
+				$.ready(function() {
+					//循环初始化所有下拉刷新，上拉加载。
+					$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+						if(index != 0)
+							$(pullRefreshEl).pullToRefresh({
+
+								down: {
+									callback: function() {
+
+										var self = this;
+										if(index == 1) {
+											pageResult = 1;
+											teamResultLoad(pageResult, 10, plus.webview.currentWebview().data.teamname);
+
+										} else if(index == 2) {
+											pageMatch = 1;
+											teamMatchLoad(pageMatch, 10, plus.webview.currentWebview().data.teamname);
+
+										} else if(index == 3) {
+											playerController(plus.webview.currentWebview().data.teamname);
+										}
+
+										self.endPullDownToRefresh();
+									}
+								},
+								up: {
+									contentrefresh: '正在加载...',
+									callback: function() {
+
+										var self = this;
+										if(index == 1) {
+											pageResult += 1;
+											teamResultLoad(pageResult, 10, plus.webview.currentWebview().data.teamname);
+										} else if(index == 2) {
+											pageMatch += 1;
+											teamMatchLoad(pageMatch, 10, plus.webview.currentWebview().data.teamname);
+
+										}
+										self.endPullDownToRefresh();
+
+									}
+								}
+							});
+					});
+
+				});
+			})(mui);
+		</script>
+	</body>
+
+</html>

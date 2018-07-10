@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #000000;"></a>
+			<h1 id="title" class="mui-title" style="color: #000000;">修改个人信息</h1>
+		</header>
+		<div style="text-align: center;">
+			<img src="../images/icon_default.png" style="display: inline-block;margin-top: 20%;  " />
+			<form class="mui-input-group" style="position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 180px;
+    width: 100%;">
+
+				<div class="mui-input-row">
+					<label style="text-align: left;">旧密码</label>
+					<input id="oldpwd" type="password" class="mui-input-clear" placeholder="请输入旧密码">
+				</div>
+				<div class="mui-input-row">
+					<label style="text-align: left;">新密码</label>
+					<input id="new0pwd" type="password" class="mui-input-password" placeholder="请输入6~12位密码">
+				</div>
+				<div class="mui-input-row">
+					<label style="text-align: left;">重复密码</label>
+					<input id="new1pwd" type="password" class="mui-input-password" placeholder="请输入6~12位密码">
+				</div>
+				<div class="mui-button-row" style="padding-top: 10px">
+					<button id="revise" type="button" style="width: 180px;" class="mui-btn mui-btn-primary">修改</button>
+
+				</div>
+
+			</form>
+
+		</div>
+		<script type="text/javascript" src="../js/config.js" ></script>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+
+			document.getElementById('revise').addEventListener("tap", function(e) {
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function() {
+					switch(xhr.readyState) {
+						case 0:
+							console.log("xhr请求已初始化");
+							break;
+						case 1:
+							console.log("xhr请求已打开");
+							break;
+						case 2:
+							console.log("xhr请求已发送");
+							break;
+						case 3:
+							console.log("xhr请求已响应");
+
+							break;
+						case 4:
+							if(xhr.status == 200) {
+
+								console.log("xhr请求成功：" + xhr.responseText);
+								var data = JSON.parse(xhr.responseText);
+								if(data.message != null) {
+									mui.toast(data.message);
+								}
+								if(data.status == 200) {
+
+									mui.back();
+								}
+
+							} else {
+								console.log("xhr请求失败：" + xhr.status);
+							}
+
+							break;
+						default:
+							break;
+
+					}
+				};
+
+				var data = JSON.parse(localStorage.getItem('user'));
+
+				var oldpwd = document.getElementById('oldpwd').value;
+				var new0pwd = document.getElementById('new0pwd').value;
+				var new1pwd = document.getElementById('new1pwd').value;
+				if(oldpwd == null) {
+					mui.toast("旧密码不能为空");
+					return;
+				} else if(new0pwd == null) {
+					mui.toast("新密码不能为空");
+					return
+				} else if(new0pwd != new1pwd) {
+					mui.toast("新密码不一致");
+					return
+				}
+				var url = getPort()+"/FootBall/userController.do?updatepassword&username=" + data.data.username + "&tel=" + data.data.tel + "&passwordold=" + oldpwd + "&passwordnew=" + new0pwd;
+
+				xhr.open("GET", url);
+				xhr.overrideMimeType("text/plain; charset=utf-8"); // 将返回的数据当做UTF-8字符集的纯文本类型处理
+				xhr.send();
+			})
+		</script>
+	</body>
+
+</html>

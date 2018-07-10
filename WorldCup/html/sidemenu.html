@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body style="margin: 0;
+                padding: 0;
+                overflow: hidden;">
+
+		<div style="border: 1px ;
+				solid #FFFFFF;
+                position: absolute;
+                width: 260px;
+                height: 100px;
+                ">
+
+			<!--右侧导航头像-->
+			<div style="text-align: center">
+
+				<img id="login" src="../images/icon_default.png" style="display: block;
+                width: 80px;
+                border-radius: 50%;
+                border: 3px solid #FFFFFF;
+                margin-top: 40px;
+                margin-left: 90px; auto 30px;" />
+				<p id="username" style="color:#000000;margin-top: 10px;width: 260px;text-align: center;"></p>
+			</div>
+
+			<hr style=" width: 240px;
+                color: gainsboro;
+                margin-left: 20px;
+                margin-right: 20px;
+                opacity: 0.5;
+                margin-top: 50px;" />
+
+			<!--导航栏-->
+			<div style="margin-top: 20px;">
+				<a id="revise" class="dj" style="display: block;
+                color: #000000;
+                    
+                text-decoration: none;
+                height: 60px;
+                line-height: 60px;
+                text-indent: 20px;">
+					<i class="fa fa-bars"></i>&nbsp;&nbsp;修改个人信息
+				</a>
+				<a id="myhome" style="display: block;
+                color: #000000;
+                text-decoration: none;
+                height: 60px;
+                line-height: 60px;
+                text-indent: 20px;">
+					<i class="fa fa-bank"></i>&nbsp;&nbsp;关于我们
+				</a>
+
+				<a id="edit" style="display: block;
+                color: #000000;
+                
+                text-decoration: none;
+                height: 60px;
+                line-height: 60px;
+                text-indent: 20px;">
+					<i class="fa fa-bold"></i>&nbsp;&nbsp;退出登录
+				</a>
+			</div>
+
+		</div>
+
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			initInfo();
+
+			function initInfo() {
+				var edit = document.getElementById('edit');
+				var username = document.getElementById('username');
+				var user = localStorage.getItem('user');
+				if(user != null) {
+					var data = JSON.parse(user);
+					edit.style.visibility = "visible";
+					username.innerHTML = data.data.username;
+				} else {
+					edit.style.visibility = "hidden";
+					username.innerHTML = "点击头像登录";
+				}
+
+			}
+			window.addEventListener('refresh', function(e) { //执行刷新
+				initInfo();
+			});
+
+			document.getElementById('login').addEventListener('tap', function(e) {
+
+				mui.openWindow({
+					id: 'login',
+					url: 'login.html',
+
+					waiting: {
+						autoShow: false
+					}
+				});
+
+			});
+			document.getElementById('myhome').addEventListener('tap', function(e) {
+
+				mui.openWindow({
+					id: 'myhome',
+					url: 'myhome.html',
+
+					waiting: {
+						autoShow: false
+					}
+				});
+
+			});
+			document.getElementById('revise').addEventListener('tap', function(e) {
+				var user = localStorage.getItem('user');
+				if(user != null) {
+					mui.openWindow({
+						id: 'revise',
+						url: 'revise.html',
+
+						waiting: {
+							autoShow: false
+						}
+					});
+
+				} else {
+					mui.toast("用户尚未登录!");
+				}
+			});
+			document.getElementById('edit').addEventListener('tap', function(e) {
+
+				localStorage.removeItem('user');
+				initInfo();
+			})
+		</script>
+	</body>
+
+</html>

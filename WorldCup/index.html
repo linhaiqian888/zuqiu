@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+
+	</head>
+
+	<body>
+
+		<!-- 主页面标题 -->
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+			<h1 class="mui-title">世界杯</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper">
+			<div class="mui-content">
+
+			</div>
+		</div>
+		<script type="text/javascript" src="js/config.js" ></script>
+		<script type="text/javascript">
+			
+			
+			mui.init({
+				subpages: [{
+					url: './html/pullrefresh_sub.html',
+					id: 'pullrefresh_sub.html',
+					styles: {
+						top: '45px',
+						bottom: '0px',
+					}
+				}]
+			});
+
+
+		</script>
+		<script src="js/left.menu.js"></script>
+	</body>
+
+</html>
